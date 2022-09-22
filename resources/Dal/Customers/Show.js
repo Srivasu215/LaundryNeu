@@ -9,16 +9,23 @@ let ShowFunc = async () => {
 
     Object.entries(LocalCustomersDataAsJson).forEach(
         ([LoopKey, LoopValue]) => {
-            
+
             let LoopNewObject = JSON.parse(JSON.stringify(ModalDataAsJson));
+            let LocalLoopObject = {};
 
             Object.entries(LoopNewObject).forEach(
                 ([key, value]) => {
+                    LocalLoopObject[key]=LoopValue[key];
                     value = LoopValue[key];
+
                 }
             );
 
-            LocalReturnObject.JsonData[LoopKey]=LoopNewObject;
+
+            console.log("aaaaaa : ", LocalLoopObject);
+
+
+            LocalReturnObject.JsonData[LoopKey] = LocalLoopObject;
         }
     );
 
