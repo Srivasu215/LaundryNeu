@@ -51,7 +51,4 @@ let InsertFunc = async ({ inObjectToInsert = {} }) => {
     return await LocalReturnObject;
 };
 
-
 const toNumbers = arr => arr.map(Number);
-
-Neutralino.init();

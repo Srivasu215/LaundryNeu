@@ -85,8 +85,8 @@
 
     <div class="container">
       <div class="row">
-        <div class="col">
-          <button type="button" class="btn btn-primary" onclick="k1()">Insert</button>
+        <div class="col-7">
+          <button type="button" class="btn btn-primary" onclick="jFShowData()">Insert</button>
           <div class="table-responsive">
             <table class="table table-primary">
               <thead>
@@ -112,7 +112,7 @@
           </div>
 
         </div>
-        <div class="col">
+        <div class="col-5">
           <form id="FormVertical" onsubmit="return false;">
             <div class="mb-3">
               <label for="CustomerName" class="form-label">Customer Name</label>
@@ -134,7 +134,6 @@
           </form>
         </div>
       </div>
-
     </div>
   </main>
   <footer>
@@ -150,17 +149,12 @@
     </script>
 
   <script src="/js/neutralino.js"></script>
+  <script src="/js/handlebars.min-v4.7.7.js"></script>
   <script src="/js/lodash.js"></script>
   <script src="/Dal/Customers/Insert.js"></script>
+  <script src="/Dal/Customers/Show.js"></script>
 
   <script>
-    let k1 = () => {
-      InsertFunc({ inObjectToInsert: { Name: "Chakri", Mobile: 98481, City: "Kakinada" } }).then(p => {
-        console.log("ppppppp : ", p);
-      });
-    };
-
-
     let serializeObject = (form) => {
       // Create a new FormData object
       const formData = new FormData(form);
@@ -177,6 +171,10 @@
       return pairs;
     };
 
+    let jFShowData = async () => {
+      let LocalDataFromJson = await ShowFunc();
+      console.log("LocalDataFromJson : ", LocalDataFromJson);
+    };
 
     let jFSave = () => {
       let jVarLocalFormVertical = document.getElementById("FormVertical");
@@ -188,16 +186,13 @@
         InsertFunc({ inObjectToInsert: serializeObject(jVarLocalFormVertical) }).then(p => {
           console.log("ppppppp : ", p);
         });
-
-        //  console.log("aaaaaaaaaa");
       } else {
         document.forms[1].classList.add('was-validated');
       };
-
-
     };
 
 
+    Neutralino.init();
   </script>
 </body>
 
