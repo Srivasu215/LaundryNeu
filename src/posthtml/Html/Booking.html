@@ -2,304 +2,388 @@
 <html lang="en">
 
 <head>
-  <title>Booking Customers Barcode</title>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Booking Customers Barcode</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS v5.2.0-beta1 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
-    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+	<!-- Bootstrap CSS v5.2.0-beta1 -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+		integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+	<script type="text/javascript" src="/js/bwip-js-min.js"></script>
+
+	<link rel="stylesheet" href="https://printjs-4de6.kxcdn.com/print.min.css">
 
 </head>
 
 <body>
-  <header>
-    <!-- place navbar here -->
-  </header>
-  <main>
-    <nav class="navbar navbar-expand-xl navbar-dark bg-dark" aria-label="Sixth navbar example">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Expand at xl</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample06"
-          aria-controls="navbarsExample06" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+	<header>
+		<!-- place navbar here -->
+	</header>
+	<main>
+		<nav class="navbar navbar-expand-xl navbar-dark bg-dark" aria-label="Sixth navbar example">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">Expand at xl</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarsExample06" aria-controls="navbarsExample06" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
 
-        <div class="collapse navbar-collapse" id="navbarsExample06">
-          <ul class="navbar-nav me-auto mb-2 mb-xl-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="./Start.html">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                  class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd"
-                    d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z">
-                  </path>
-                  <path fill-rule="evenodd"
-                    d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z">
-                  </path>
-                </svg>
-                Home
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="./Customers.html">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                  class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
-                  <path
-                    d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z">
-                  </path>
-                  <path fill-rule="evenodd"
-                    d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z">
-                  </path>
-                </svg>
-                Customers
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="./Booking.html">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                  class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M6 1h6v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8V1z">
-                  </path>
-                  <path
-                    d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z">
-                  </path>
-                  <path
-                    d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z">
-                  </path>
-                </svg>
-                Booking
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="./Booking.html">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                  class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
-                  <path
-                    d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5zM3 4.5a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-7zm3 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7z">
-                  </path>
-                </svg>
-                Barcode
-              </a>
-            </li>
-          </ul>
-          <form role="search">
-            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-          </form>
-        </div>
-      </div>
-    </nav>
+				<div class="collapse navbar-collapse" id="navbarsExample06">
+					<ul class="navbar-nav me-auto mb-2 mb-xl-0">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="./Start.html">
+								<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+									class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+									<path fill-rule="evenodd"
+										d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z">
+									</path>
+									<path fill-rule="evenodd"
+										d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z">
+									</path>
+								</svg>
+								Home
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="./Customers.html">
+								<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+									class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+									<path
+										d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z">
+									</path>
+									<path fill-rule="evenodd"
+										d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z">
+									</path>
+								</svg>
+								Customers
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="./Booking.html">
+								<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+									class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+									<path fill-rule="evenodd"
+										d="M6 1h6v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8V1z">
+									</path>
+									<path
+										d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z">
+									</path>
+									<path
+										d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z">
+									</path>
+								</svg>
+								Booking
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="./Booking.html">
+								<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+									class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+									<path
+										d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5zM3 4.5a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7zm2 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-7zm3 0a.5.5 0 0 1 1 0v7a.5.5 0 0 1-1 0v-7z">
+									</path>
+								</svg>
+								Barcode
+							</a>
+						</li>
+					</ul>
+					<form role="search">
+						<input class="form-control" type="search" placeholder="Search" aria-label="Search">
+					</form>
+				</div>
+			</div>
+		</nav>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-7">
-          <button type="button" class="btn btn-primary" onclick="jFShowData()">Show Data</button>
 
-          <div id="AlertDangerId" class="alert alert-danger alert-dismissible fade show" role="alert"
-            style="display:none;">
-            <div id="AlertDangerMessageId"><strong>Sorry!</strong> Data not saved</div>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
+		<div class="container">
+			<div class="row">
+				<div class="col-7">
+					<button type="button" class="btn btn-primary" onclick="jFShowData()">Show Data</button>
 
-          <div class="table-responsive">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">CustomerName</th>
-                  <th scope="col">Mobile</th>
-                  <th scope="col">...</th>
-                </tr>
-              </thead>
-              <tbody id="KTableBody">
+					<div id="AlertDangerId" class="alert alert-danger alert-dismissible fade show" role="alert"
+						style="display:none;">
+						<div id="AlertDangerMessageId"><strong>Sorry!</strong> Data not saved</div>
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
 
-              </tbody>
-            </table>
-          </div>
+					<div class="table-responsive">
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">CustomerName</th>
+									<th scope="col">Mobile</th>
+									<th scope="col">...</th>
+								</tr>
+							</thead>
+							<tbody id="KTableBody">
 
-        </div>
-        <div class="col-5">
-          <form id="FormVertical" onsubmit="return false;">
-            <div class="mb-3">
-              <label for="CustomerName" class="form-label">Customer Name</label>
-              <input type="text" class="form-control" name="CustomerName" id="CustomerName" aria-describedby="emailHelp"
-                required="">
-              <div class="invalid-feedback">
-                Should not be empty!
-              </div>
-            </div>
-            <div class="mb-3">
-              <label for="Mobile" class="form-label">Mobile</label>
-              <input type="tel" class="form-control" name="Mobile" id="Mobile" pattern="[6789][0-9]{9}">
-            </div>
+							</tbody>
+						</table>
+					</div>
 
-            <div class="mb-3">
-              <label for="Garments" class="form-label">Garments</label>
-              <input type="text" class="form-control" name="Garments" id="Garments" aria-describedby="emailHelp"
-                required="">
-              <div class="invalid-feedback">
-                Should not be empty!
-              </div>
-            </div>
+				</div>
+				<div class="col-5">
+					<form id="FormVertical" onsubmit="return false;">
+						<div class="mb-3">
+							<label for="CustomerName" class="form-label">Customer Name</label>
+							<input type="text" class="form-control" name="CustomerName" id="CustomerName"
+								aria-describedby="emailHelp" required="">
+							<div class="invalid-feedback">
+								Should not be empty!
+							</div>
+						</div>
+						<div class="mb-3">
+							<label for="Mobile" class="form-label">Mobile</label>
+							<input type="tel" class="form-control" name="Mobile" id="Mobile" pattern="[6789][0-9]{9}">
+						</div>
 
-            <div class="mb-3">
-              <label for="Weight" class="form-label">Weight</label>
-              <input type="number" class="form-control" name="Weight" id="Weight" aria-describedby="emailHelp"
-                required="">
-              <div class="invalid-feedback">
-                Should not be empty!
-              </div>
-            </div>
-            
+						<div class="mb-3">
+							<label for="Garments" class="form-label">Garments</label>
+							<input type="text" class="form-control" name="Garments" id="Garments"
+								aria-describedby="emailHelp" required="">
+							<div class="invalid-feedback">
+								Should not be empty!
+							</div>
+						</div>
 
-            <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
-            <button class="btn btn-success" onclick="jFSave()">Save</button>
-          </form>
+						<div class="mb-3">
+							<label for="Weight" class="form-label">Weight</label>
+							<input type="number" class="form-control" name="Weight" id="Weight"
+								aria-describedby="emailHelp" required="">
+							<div class="invalid-feedback">
+								Should not be empty!
+							</div>
+						</div>
 
-          <div id="AlertWarningId" class="alert alert-warning alert-dismissible fade show" role="alert"
-            style="display:none;">
-            <div id="AlertWarningMessageId"><strong>Sorry!</strong> Data not saved</div>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
 
-          <div id="AlertSuccessId" class="alert alert-success alert-dismissible fade show" role="alert"
-            style="display:none;">
-            <div id="AlertSuccessMessageId"><strong>Hurray!</strong> Data saved</div>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
+						<div class="mb-3 form-check">
+							<input type="checkbox" class="form-check-input" id="exampleCheck1">
+							<label class="form-check-label" for="exampleCheck1">Check me out</label>
+						</div>
+						<button class="btn btn-success" onclick="jFSave()">Save</button>
+					</form>
 
-        </div>
-      </div>
-    </div>
-  </main>
-  <footer>
-    <!-- place footer here -->
-  </footer>
-  <!-- Bootstrap JavaScript Libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
-    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
-    </script>
+					<div id="AlertWarningId" class="alert alert-warning alert-dismissible fade show" role="alert"
+						style="display:none;">
+						<div id="AlertWarningMessageId"><strong>Sorry!</strong> Data not saved</div>
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
-    integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
-    </script>
+					<div id="AlertSuccessId" class="alert alert-success alert-dismissible fade show" role="alert"
+						style="display:none;">
+						<div id="AlertSuccessMessageId"><strong>Hurray!</strong> Data saved</div>
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
 
-  <script src="/js/neutralino.js"></script>
-  <script src="/js/handlebars.min-v4.7.7.js"></script>
-  <script src="/js/lodash.js"></script>
-  <script src="/Dal/Bookings/Insert.js"></script>
-  <script src="/Dal/Bookings/Show.js"></script>
-  <script src="/Dal/Bookings/Delete.js"></script>
+				</div>
+			</div>
+		</div>
 
-  <script>
-    let serializeObject = (form) => {
-      // Create a new FormData object
-      const formData = new FormData(form);
+		<!-- Button trigger modal -->
+		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+			Launch demo modal
+		</button>
 
-      // Create an object to hold the name/value pairs
-      const pairs = {};
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<canvas id="canvas" width=1 height=1 style="border:1px solid #fff;visibility:hidden"></canvas>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary" onclick="printJS('canvas', 'html')">Print</button>
+					</div>
+				</div>
+			</div>
+		</div>
 
-      // Add each name/value pair to the object
-      for (const [name, value] of formData) {
-        pairs[name] = value;
-      }
+	</main>
+	<footer>
+		<!-- place footer here -->
+	</footer>
+	<!-- Bootstrap JavaScript Libraries -->
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+		integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+		</script>
 
-      // Return the object
-      return pairs;
-    };
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+		integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
+		</script>
 
-    let jFShowData = async () => {
-      let LocalDataFromJson = await ShowFunc();
-      let LocalDataToHbs = {};
-      let LocalSNo = 1;
+	<script src="/js/neutralino.js"></script>
+	<script src="/js/handlebars.min-v4.7.7.js"></script>
+	<script src="/js/lodash.js"></script>
+	<script src="/Dal/Bookings/Insert.js"></script>
+	<script src="/Dal/Bookings/Show.js"></script>
+	<script src="/Dal/Bookings/Delete.js"></script>
 
-      let LocalDataWithSno = Object.keys(LocalDataFromJson.JsonData).map((element, LoopIndex) => {
-        element.SNo = LoopIndex + 1;
-        return element;
-      });
+	<script>
+		let jFRender = () => {
+			var canvas = document.getElementById('canvas');
+			canvas.height = 1;
+			canvas.width = 1;
+			canvas.style.visibility = 'hidden';
 
-      Object.entries(LocalDataFromJson.JsonData).forEach(
-        ([key, value]) => {
-          LocalDataToHbs[key] = value;
-          LocalDataToHbs[key].SNo = LocalSNo;
-          LocalSNo += 1;
-        }
-      );
+			// Convert the options to an object.
+			let opts = {};
 
-      let response = await fetch("Row.html");
-      let data = await response.text();
+			// Finish up the options
+			opts.text = "KeshavSoft";
+			opts.bcid = "qrcode";
+			opts.scaleX = 1;
+			opts.scaleY = 1;
+			opts.rotate = "N";
 
-      var template = Handlebars.compile(data);
-      let jVarLocalHtml = template(LocalDataToHbs);
+			// Draw the bar code to the canvas
+			try {
+				let ts0 = new Date;
+				bwipjs.toCanvas(canvas, opts);
+				show(ts0, new Date);
+			} catch (e) {
+				// Watch for BWIPP generated raiseerror's.
+				var msg = ('' + e).trim();
+				if (msg.indexOf("bwipp.") >= 0) {
+					document.getElementById('output').textContent = msg;
+				} else if (e.stack) {
+					// GC includes the message in the stack.  FF does not.
+					document.getElementById('output').textContent =
+						(e.stack.indexOf(msg) == -1 ? msg + '\n' : '') + e.stack;
+				} else {
+					document.getElementById('output').textContent = msg;
+				}
+				return;
+			}
 
-      document.getElementById("KTableBody").innerHTML = jVarLocalHtml;
-    };
+			function show(ts0, ts1) {
+				canvas.style.visibility = 'visible';
+				setURL();
+				document.getElementById('stats').textContent = 'Rendered in ' + (ts1 - ts0) + ' msecs.';
+				document.getElementById('saveas').style.visibility = 'visible';
+				saveCanvas.basename = elt.sym + '-' + text.replace(/[^a-zA-Z0-9._]+/g, '-');
+			}
+		};
 
-    let jFSave = async () => {
-      let jVarLocalFormVertical = document.getElementById("FormVertical");
 
-      jVarLocalFormVertical.classList.remove('was-validated');
-      jVarLocalFormVertical.classList.add('novalidate');
 
-      if (jVarLocalFormVertical.checkValidity()) {
-        let PromiseDataFromSave = await InsertFunc({ inObjectToInsert: serializeObject(jVarLocalFormVertical) });
 
-        if (PromiseDataFromSave.KTF) {
-          await jFShowData();
+		let serializeObject = (form) => {
+			// Create a new FormData object
+			const formData = new FormData(form);
 
-          let jVarLocalAlertSuccessId = document.getElementById("AlertSuccessId");
-          let jVarLocalAlertSuccessMessageId = document.getElementById("AlertSuccessMessageId");
-          jVarLocalAlertSuccessId.style.display = "";
-          jVarLocalAlertSuccessMessageId.innerHTML = `<strong>Hurray!</strong> ${PromiseDataFromSave.KResult}`
+			// Create an object to hold the name/value pairs
+			const pairs = {};
 
-          setTimeout(function () {
-            jVarLocalAlertSuccessId.style.display = "none"
+			// Add each name/value pair to the object
+			for (const [name, value] of formData) {
+				pairs[name] = value;
+			}
 
-          }, 7000);
-        } else {
-          let jVarLocalAlertDangerId = document.getElementById("AlertWarningId");
-          let jVarLocalAlertDangerMessageId = document.getElementById("AlertWarningMessageId");
-          jVarLocalAlertDangerId.style.display = "";
-          jVarLocalAlertDangerMessageId.innerHTML = `<strong>Sorry!</strong> ${PromiseDataFromSave.KReason}`
+			// Return the object
+			return pairs;
+		};
 
-          setTimeout(function () {
-            jVarLocalAlertDangerId.style.display = "none"
+		let jFShowData = async () => {
+			let LocalDataFromJson = await ShowFunc();
+			let LocalDataToHbs = {};
+			let LocalSNo = 1;
 
-          }, 7000);
-        };
-      } else {
-        document.forms[1].classList.add('was-validated');
-      };
-    };
+			let LocalDataWithSno = Object.keys(LocalDataFromJson.JsonData).map((element, LoopIndex) => {
+				element.SNo = LoopIndex + 1;
+				return element;
+			});
 
-    let jFDelete = async ({ inRowPK }) => {
-      let LocalFromDelete = await DeleteFunc({ inRowPK });
+			Object.entries(LocalDataFromJson.JsonData).forEach(
+				([key, value]) => {
+					LocalDataToHbs[key] = value;
+					LocalDataToHbs[key].SNo = LocalSNo;
+					LocalSNo += 1;
+				}
+			);
 
-      if (LocalFromDelete.KTF) {
-        await jFShowData();
+			let response = await fetch("Row.html");
+			let data = await response.text();
 
-        let jVarLocalAlertDangerId = document.getElementById("AlertDangerId");
-        let jVarLocalAlertDangerMessageId = document.getElementById("AlertDangerMessageId");
-        jVarLocalAlertDangerId.style.display = "";
-        jVarLocalAlertDangerMessageId.innerHTML = `<strong>Ok!</strong> ${LocalFromDelete.KResult}`
+			var template = Handlebars.compile(data);
+			let jVarLocalHtml = template(LocalDataToHbs);
 
-        setTimeout(function () {
-          jVarLocalAlertDangerId.style.display = "none"
+			document.getElementById("KTableBody").innerHTML = jVarLocalHtml;
+		};
 
-        }, 7000);
-      };
-    };
+		let jFSave = async () => {
+			let jVarLocalFormVertical = document.getElementById("FormVertical");
 
-    import("/js/khand.js").then(p => {
-      p.HelperFuns.ForSno();
-    });
-    
-    Neutralino.init();
-  </script>
+			jVarLocalFormVertical.classList.remove('was-validated');
+			jVarLocalFormVertical.classList.add('novalidate');
+
+			if (jVarLocalFormVertical.checkValidity()) {
+				let PromiseDataFromSave = await InsertFunc({ inObjectToInsert: serializeObject(jVarLocalFormVertical) });
+
+				if (PromiseDataFromSave.KTF) {
+					await jFShowData();
+
+					let jVarLocalAlertSuccessId = document.getElementById("AlertSuccessId");
+					let jVarLocalAlertSuccessMessageId = document.getElementById("AlertSuccessMessageId");
+					jVarLocalAlertSuccessId.style.display = "";
+					jVarLocalAlertSuccessMessageId.innerHTML = `<strong>Hurray!</strong> ${PromiseDataFromSave.KResult}`
+
+					setTimeout(function () {
+						jVarLocalAlertSuccessId.style.display = "none"
+
+					}, 7000);
+				} else {
+					let jVarLocalAlertDangerId = document.getElementById("AlertWarningId");
+					let jVarLocalAlertDangerMessageId = document.getElementById("AlertWarningMessageId");
+					jVarLocalAlertDangerId.style.display = "";
+					jVarLocalAlertDangerMessageId.innerHTML = `<strong>Sorry!</strong> ${PromiseDataFromSave.KReason}`
+
+					setTimeout(function () {
+						jVarLocalAlertDangerId.style.display = "none"
+
+					}, 7000);
+				};
+			} else {
+				document.forms[1].classList.add('was-validated');
+			};
+		};
+
+		let jFDelete = async ({ inRowPK }) => {
+			let LocalFromDelete = await DeleteFunc({ inRowPK });
+
+			if (LocalFromDelete.KTF) {
+				await jFShowData();
+
+				let jVarLocalAlertDangerId = document.getElementById("AlertDangerId");
+				let jVarLocalAlertDangerMessageId = document.getElementById("AlertDangerMessageId");
+				jVarLocalAlertDangerId.style.display = "";
+				jVarLocalAlertDangerMessageId.innerHTML = `<strong>Ok!</strong> ${LocalFromDelete.KResult}`
+
+				setTimeout(function () {
+					jVarLocalAlertDangerId.style.display = "none"
+
+				}, 7000);
+			};
+		};
+
+		import("/js/khand.js").then(p => {
+			p.HelperFuns.ForSno();
+		});
+
+		Neutralino.init();
+	</script>
+
+
+	<script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+
 </body>
 
 </html>
