@@ -198,11 +198,45 @@
 						<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
-					<div class="modal-body">
-						<canvas id="canvas" width=1 height=1 style="border:1px solid #fff;visibility:hidden"></canvas>
+					<div class="modal-body" id="ModalBody">
+						<div class="row">
+							<div class="col" id="ModalCustomerName"></div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<canvas id="canvas" width=1 height=1
+									style="border:1px solid #fff;visibility:hidden"></canvas>
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col" id="ModalPK">
+
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col" id="ModalGarments">
+
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col" id="ModalWeight">
+
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col fw-bold" id="ModalMobile">
+
+							</div>
+
+						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary" onclick="printJS('canvas', 'html')">Print</button>
+						<button type="button" class="btn btn-primary"
+							onclick="printJS('ModalBody', 'html')">Print</button>
 					</div>
 				</div>
 			</div>
@@ -372,9 +406,20 @@
 
 		let jFPickFunc = async ({ inRowPK }) => {
 			let jVarLocalDataNeeded = await PickFunc({ inRowPK });
-			console.log("kkkkk : ", jVarLocalDataNeeded);
 
 			if (jVarLocalDataNeeded.KTF) {
+				let jVarLocalModalCustomerName = document.getElementById("ModalCustomerName");
+				let jVarLocalModalPK = document.getElementById("ModalPK");
+				let jVarLocalModalGarments = document.getElementById("ModalGarments");
+				let jVarLocalModalWeight = document.getElementById("ModalWeight");
+				let jVarLocalModalMobile = document.getElementById("ModalMobile");
+
+				jVarLocalModalCustomerName.innerHTML = jVarLocalDataNeeded.KResult.CustomerName;
+				jVarLocalModalPK.innerHTML = inRowPK;
+				jVarLocalModalGarments.innerHTML = jVarLocalDataNeeded.KResult.Garments;
+				jVarLocalModalWeight.innerHTML = `${jVarLocalDataNeeded.KResult.Weight} Kg.`;
+				jVarLocalModalMobile.innerHTML = jVarLocalDataNeeded.KResult.Mobile;
+			
 				let jVarLocalQrData = `${inRowPK}/${jVarLocalDataNeeded.KResult.CustomerName}/${jVarLocalDataNeeded.KResult.Mobile}/${jVarLocalDataNeeded.KResult.Garments}/${jVarLocalDataNeeded.KResult.Weight}`;
 				jFGenerateQrCodeOnCanvas({ inQrData: jVarLocalQrData });
 
