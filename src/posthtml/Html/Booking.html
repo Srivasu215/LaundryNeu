@@ -200,7 +200,8 @@
 						<canvas id="canvas" width=1 height=1 style="border:1px solid #fff;visibility:hidden"></canvas>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-secondary"
+							onclick="jFGenerateQrCode()">Generate</button>
 						<button type="button" class="btn btn-primary" onclick="printJS('canvas', 'html')">Print</button>
 					</div>
 				</div>
@@ -228,6 +229,7 @@
 	<script src="/Dal/Bookings/Delete.js"></script>
 
 	<script>
+
 		let jFRender = () => {
 			var canvas = document.getElementById('canvas');
 			canvas.height = 1;
@@ -273,6 +275,57 @@
 			}
 		};
 
+
+		let jFGenerateQrCode = () => {
+			let jVarLocalData = "kkk";
+
+			jFGenerateQrCodeOnCanvas({ inQrData: jVarLocalData });
+		};
+
+		let jFGenerateQrCodeOnCanvas = ({ inQrData = "" }) => {
+			var canvas = document.getElementById('canvas');
+			canvas.height = 1;
+			canvas.width = 1;
+			canvas.style.visibility = 'hidden';
+
+			// Convert the options to an object.
+			let opts = {};
+
+			// Finish up the options
+			opts.text = inQrData;
+			opts.bcid = "qrcode";
+			opts.scaleX = 1;
+			opts.scaleY = 1;
+			opts.rotate = "N";
+
+			// Draw the bar code to the canvas
+			try {
+				let ts0 = new Date;
+				bwipjs.toCanvas(canvas, opts);
+				show(ts0, new Date);
+			} catch (e) {
+				// Watch for BWIPP generated raiseerror's.
+				var msg = ('' + e).trim();
+				if (msg.indexOf("bwipp.") >= 0) {
+					document.getElementById('output').textContent = msg;
+				} else if (e.stack) {
+					// GC includes the message in the stack.  FF does not.
+					document.getElementById('output').textContent =
+						(e.stack.indexOf(msg) == -1 ? msg + '\n' : '') + e.stack;
+				} else {
+					document.getElementById('output').textContent = msg;
+				}
+				return;
+			}
+
+			function show(ts0, ts1) {
+				canvas.style.visibility = 'visible';
+				setURL();
+				document.getElementById('stats').textContent = 'Rendered in ' + (ts1 - ts0) + ' msecs.';
+				document.getElementById('saveas').style.visibility = 'visible';
+				saveCanvas.basename = elt.sym + '-' + text.replace(/[^a-zA-Z0-9._]+/g, '-');
+			}
+		};
 
 
 
