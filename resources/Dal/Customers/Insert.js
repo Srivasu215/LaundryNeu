@@ -1,10 +1,12 @@
 let UniqueFunc = async ({ inObjectToInsert = {} }) => {
+    let LocalJsonFileName = "Customers.json";
+
     let LocalReturnObject = { KTF: false, KResult: "" };
 
-    let UniqueColumnsData = await Neutralino.filesystem.readFile('./KData/JSON/UniqueColumns/Customers.json');
+    let UniqueColumnsData = await Neutralino.filesystem.readFile(`./KData/JSON/UniqueColumns/${LocalJsonFileName}`);
     let UniqueColumnsDataAsJson = JSON.parse(UniqueColumnsData);
 
-    let LocalCustomersData = await Neutralino.filesystem.readFile('./KData/JSON/2017/Customers.json');
+    let LocalCustomersData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/${LocalJsonFileName}`);
     let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
     let LocalValueToCheck = _.get(inObjectToInsert, UniqueColumnsDataAsJson.ColumnName);
 
@@ -26,12 +28,14 @@ let UniqueColumnReturn = async () => {
     return await UniqueColumnsDataAsJson.ColumnName;
 };
 let InsertFunc = async ({ inObjectToInsert = {} }) => {
+    let LocalJsonFileName = "Customers.json";
+
     let LocalReturnObject = { KTF: false, KResult: "" };
 
-    let ModalData = await Neutralino.filesystem.readFile('./KData/JSON/TemplateData/Customers.json');
+    let ModalData = await Neutralino.filesystem.readFile(`./KData/JSON/TemplateData/${LocalJsonFileName}`);
     let ModalDataAsJson = JSON.parse(ModalData);
 
-    let LocalCustomersData = await Neutralino.filesystem.readFile('./KData/JSON/2017/Customers.json');
+    let LocalCustomersData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/${LocalJsonFileName}`);
     let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
     let LocalKeys = Object.keys(LocalCustomersDataAsJson);
     let max = 1;
@@ -57,7 +61,7 @@ let InsertFunc = async ({ inObjectToInsert = {} }) => {
 
     if (LocalFromWriteFile.success) {
         let LocalReturnColumnName = await UniqueColumnReturn();
-        
+
         LocalReturnObject.KResult = `${inObjectToInsert[LocalReturnColumnName]} saved successfully...`;
         LocalReturnObject.KTF = true;
     };

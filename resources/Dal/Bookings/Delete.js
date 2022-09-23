@@ -1,5 +1,5 @@
 let DeleteFunc = async ({ inRowPK }) => {
-    let LocalJsonFileName = "Customers.json";
+    let LocalJsonFileName = "Bookings.json";
 
     let LocalReturnObject = { KTF: false, KResult: "" };
 
