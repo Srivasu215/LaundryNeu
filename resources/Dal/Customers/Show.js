@@ -21,10 +21,6 @@ let ShowFunc = async () => {
                 }
             );
 
-
-            console.log("aaaaaa : ", LocalLoopObject);
-
-
             LocalReturnObject.JsonData[LoopKey] = LocalLoopObject;
         }
     );

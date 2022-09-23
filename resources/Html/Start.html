@@ -94,14 +94,22 @@
     <div class="container">
       <div class="row">
         <div class="col-7">
-          <button type="button" class="btn btn-primary" onclick="jFShowData()">Insert</button>
+          <button type="button" class="btn btn-primary" onclick="jFShowData()">Show Data</button>
+
+          <div id="AlertDangerId" class="alert alert-danger alert-dismissible fade show" role="alert"
+            style="display:none;">
+            <div id="AlertDangerMessageId"><strong>Sorry!</strong> Data not saved</div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+
           <div class="table-responsive">
-            <table class="table table-primary">
+            <table class="table">
               <thead>
                 <tr>
+                  <th scope="col">#</th>
                   <th scope="col">CustomerName</th>
                   <th scope="col">Mobile</th>
-                  <th scope="col">Column 3</th>
+                  <th scope="col">...</th>
                 </tr>
               </thead>
               <tbody id="KTableBody">
@@ -129,8 +137,21 @@
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
               <label class="form-check-label" for="exampleCheck1">Check me out</label>
             </div>
-            <button class="btn btn-primary" onclick="jFSave()">Submit</button>
+            <button class="btn btn-success" onclick="jFSave()">Save</button>
           </form>
+
+          <div id="AlertWarningId" class="alert alert-warning alert-dismissible fade show" role="alert"
+            style="display:none;">
+            <div id="AlertWarningMessageId"><strong>Sorry!</strong> Data not saved</div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+
+          <div id="AlertSuccessId" class="alert alert-success alert-dismissible fade show" role="alert"
+            style="display:none;">
+            <div id="AlertSuccessMessageId"><strong>Hurray!</strong> Data saved</div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+
         </div>
       </div>
     </div>
@@ -152,6 +173,7 @@
   <script src="/js/lodash.js"></script>
   <script src="/Dal/Customers/Insert.js"></script>
   <script src="/Dal/Customers/Show.js"></script>
+  <script src="/Dal/Customers/Delete.js"></script>
 
   <script>
     let serializeObject = (form) => {
@@ -172,40 +194,90 @@
 
     let jFShowData = async () => {
       let LocalDataFromJson = await ShowFunc();
-      console.log("LocalDataFromJson : ", LocalDataFromJson);
+      let LocalDataToHbs = {};
+      let LocalSNo = 1;
+
+      let LocalDataWithSno = Object.keys(LocalDataFromJson.JsonData).map((element, LoopIndex) => {
+        element.SNo = LoopIndex + 1;
+        return element;
+      });
+
+      Object.entries(LocalDataFromJson.JsonData).forEach(
+        ([key, value]) => {
+          LocalDataToHbs[key] = value;
+          LocalDataToHbs[key].SNo = LocalSNo;
+          LocalSNo += 1;
+        }
+      );
 
       let response = await fetch("Row.html");
       let data = await response.text();
 
       var template = Handlebars.compile(data);
-      let jVarLocalHtml = template(LocalDataFromJson.JsonData);
+      let jVarLocalHtml = template(LocalDataToHbs);
 
       document.getElementById("KTableBody").innerHTML = jVarLocalHtml;
-      console.log("data : ", data, jVarLocalHtml);
     };
 
-    let jFSave = () => {
+    let jFSave = async () => {
       let jVarLocalFormVertical = document.getElementById("FormVertical");
 
       jVarLocalFormVertical.classList.remove('was-validated');
       jVarLocalFormVertical.classList.add('novalidate');
 
       if (jVarLocalFormVertical.checkValidity()) {
-        InsertFunc({ inObjectToInsert: serializeObject(jVarLocalFormVertical) }).then(p => {
-          console.log("ppppppp : ", p);
-        });
+        let PromiseDataFromSave = await InsertFunc({ inObjectToInsert: serializeObject(jVarLocalFormVertical) });
+
+        if (PromiseDataFromSave.KTF) {
+          await jFShowData();
+
+          let jVarLocalAlertSuccessId = document.getElementById("AlertSuccessId");
+          let jVarLocalAlertSuccessMessageId = document.getElementById("AlertSuccessMessageId");
+          jVarLocalAlertSuccessId.style.display = "";
+          jVarLocalAlertSuccessMessageId.innerHTML = `<strong>Hurray!</strong> ${PromiseDataFromSave.KResult}`
+
+          setTimeout(function () {
+            jVarLocalAlertSuccessId.style.display = "none"
+
+          }, 7000);
+        } else {
+          let jVarLocalAlertDangerId = document.getElementById("AlertWarningId");
+          let jVarLocalAlertDangerMessageId = document.getElementById("AlertWarningMessageId");
+          jVarLocalAlertDangerId.style.display = "";
+          jVarLocalAlertDangerMessageId.innerHTML = `<strong>Sorry!</strong> ${PromiseDataFromSave.KReason}`
+
+          setTimeout(function () {
+            jVarLocalAlertDangerId.style.display = "none"
+
+          }, 7000);
+        };
       } else {
         document.forms[1].classList.add('was-validated');
       };
     };
 
+    let jFDelete = async ({ inRowPK }) => {
+      let LocalFromDelete = await DeleteFunc({ inRowPK });
+
+      if (LocalFromDelete.KTF) {
+        await jFShowData();
+
+        let jVarLocalAlertDangerId = document.getElementById("AlertDangerId");
+        let jVarLocalAlertDangerMessageId = document.getElementById("AlertDangerMessageId");
+        jVarLocalAlertDangerId.style.display = "";
+        jVarLocalAlertDangerMessageId.innerHTML = `<strong>Ok!</strong> ${LocalFromDelete.KResult}`
+
+        setTimeout(function () {
+          jVarLocalAlertDangerId.style.display = "none"
+
+        }, 7000);
+      };
+    };
+
     import("/js/khand.js").then(p => {
-      //p.ForSno();
-      console.log("aaaaaa : ", p, p.HelperFuns);
-
       p.HelperFuns.ForSno();
-
-    })
+    });
+    
     Neutralino.init();
   </script>
 </body>
