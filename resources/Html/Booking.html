@@ -203,6 +203,7 @@
 	<script src="/Dal/Bookings/Insert.js"></script>
 	<script src="/Dal/Bookings/Show.js"></script>
 	<script src="/Dal/Bookings/Delete.js"></script>
+	<script src="/Dal/Bookings/Pick.js"></script>
 
 	<script>
 
@@ -401,6 +402,11 @@
 
 				}, 7000);
 			};
+		};
+
+		let jFPickFunc = async ({ inRowPK }) => {
+			let jVarLocalDataNeeded = await PickFunc({ inRowPK });
+			console.log("kkkkk : ", jVarLocalDataNeeded);
 		};
 
 		import("/js/khand.js").then(p => {
