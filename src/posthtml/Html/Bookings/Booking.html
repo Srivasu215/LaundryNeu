@@ -189,7 +189,7 @@
 		</button>
 
 		<!-- Modal -->
-		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal fade" id="ModalForQrCode" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -200,7 +200,6 @@
 						<canvas id="canvas" width=1 height=1 style="border:1px solid #fff;visibility:hidden"></canvas>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" onclick="jFGenerateQrCode()">Generate</button>
 						<button type="button" class="btn btn-primary" onclick="printJS('canvas', 'html')">Print</button>
 					</div>
 				</div>
@@ -378,6 +377,12 @@
 			if (jVarLocalDataNeeded.KTF) {
 				let jVarLocalQrData = `${inRowPK}/${jVarLocalDataNeeded.KResult.CustomerName}/${jVarLocalDataNeeded.KResult.Mobile}/${jVarLocalDataNeeded.KResult.Garments}/${jVarLocalDataNeeded.KResult.Weight}`;
 				jFGenerateQrCodeOnCanvas({ inQrData: jVarLocalQrData });
+
+				let jVarLocalId = "ModalForQrCode";
+
+				var myModal = new bootstrap.Modal(document.getElementById(jVarLocalId), { keyboard: true, focus: true });
+
+				myModal.show();
 			};
 		};
 
