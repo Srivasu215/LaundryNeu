@@ -1,3 +1,16 @@
+let LocalGetDate = () => {
+    let date = new Date();
+
+    let dd = (date.getDate() < 10 ? '0' : '') + date.getDate();
+    let MM = ((date.getMonth() + 1) < 10 ? '0' : '') + (date.getMonth() + 1);
+    let yyyy = date.getFullYear();
+    let HH = date.getHours();
+    let mm = date.getMinutes();
+    let ss = date.getSeconds();
+
+    return `${dd}-${MM}-${yyyy}-${HH}-${mm}-${ss}`;
+};
+
 let InsertFunc = async ({ inObjectToInsert = {} }) => {
     let LocalJsonFileName = "Bookings.json";
 
@@ -18,6 +31,7 @@ let InsertFunc = async ({ inObjectToInsert = {} }) => {
     };
 
     let LocalNewData = _.pick(inObjectToInsert, Object.keys(ModalDataAsJson));
+    LocalNewData.DataTime = LocalGetDate();
     LocalCustomersDataAsJson[max] = LocalNewData;
 
     let LocalFromWriteFile = await Neutralino.filesystem.writeFile(`./KData/JSON/2017/${LocalJsonFileName}`, JSON.stringify(LocalCustomersDataAsJson));

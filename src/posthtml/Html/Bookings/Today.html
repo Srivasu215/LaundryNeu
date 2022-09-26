@@ -91,8 +91,9 @@
 							</a>
 						</li>
 					</ul>
-					<form role="search">
-						<input class="form-control" type="search" placeholder="Search" aria-label="Search">
+					<form role="search" onsubmit="return false;">
+						<input id="SearchQrCodeId" class="form-control" type="search" placeholder="Search"
+							aria-label="Search" onkeypress="jFSearchKeyPress(event)">
 					</form>
 				</div>
 			</div>
@@ -118,6 +119,7 @@
 									<th scope="col">CustomerName</th>
 									<th scope="col">Mobile</th>
 									<th scope="col">...</th>
+									<th scope="col">Qrcode</th>
 								</tr>
 							</thead>
 							<tbody id="KTableBody">
@@ -240,13 +242,13 @@
 	</main>
 
 	<footer class="footer mt-auto py-2 bg-light fixed-bottom">
-        <div class="container">
-            <div class="bg-light d-flex justify-content-between">
-                <div>KeshavSoft v9.26</div>
-                <div data-BaseString="Last refresh : " id="KLastRefreshDT">Last refresh : </div>
-            </div>
-        </div>
-    </footer>
+		<div class="container">
+			<div class="bg-light d-flex justify-content-between">
+				<div>KeshavSoft v9.26</div>
+				<div data-BaseString="Last refresh : " id="KLastRefreshDT">Last refresh : </div>
+			</div>
+		</div>
+	</footer>
 	<!-- Bootstrap JavaScript Libraries -->
 	<!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
 		integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
@@ -324,7 +326,7 @@
 		};
 
 		let jFShowData = async () => {
-			let LocalDataFromJson = await ShowFunc();
+			let LocalDataFromJson = await ShowTodayFunc();
 			let LocalDataToHbs = {};
 			let LocalSNo = 1;
 
@@ -420,7 +422,7 @@
 				jVarLocalModalGarments.innerHTML = jVarLocalDataNeeded.KResult.Garments;
 				jVarLocalModalWeight.innerHTML = `${jVarLocalDataNeeded.KResult.Weight} Kg.`;
 				jVarLocalModalMobile.innerHTML = jVarLocalDataNeeded.KResult.Mobile;
-			
+
 				let jVarLocalQrData = `${inRowPK}/${jVarLocalDataNeeded.KResult.CustomerName}/${jVarLocalDataNeeded.KResult.Mobile}/${jVarLocalDataNeeded.KResult.Garments}/${jVarLocalDataNeeded.KResult.Weight}`;
 				jFGenerateQrCodeOnCanvas({ inQrData: jVarLocalQrData });
 
@@ -435,6 +437,24 @@
 		import("/js/khand.js").then(p => {
 			p.HelperFuns.ForSno();
 		});
+
+		let jFSearchKeyPress = async (inEvent) => {
+			if (inEvent.keyCode === 13) {
+				let jVarLocalCurrentTarget = inEvent.currentTarget;
+				let jVarLocalSearchValue = jVarLocalCurrentTarget.value;
+
+				let jVarLocalDataNeeded = await PickFunc({ inRowPK: jVarLocalSearchValue });
+
+				console.log("jVarLocalDataNeeded : ", jVarLocalDataNeeded);
+
+				let response = await fetch("Hbs/PopUp/Vertical.html");
+				let data = await response.text();
+
+				var template = Handlebars.compile(data);
+				let jVarLocalHtml = template(LocalDataToHbs);
+
+			};
+		};
 
 		Neutralino.init();
 		jFShowData();
