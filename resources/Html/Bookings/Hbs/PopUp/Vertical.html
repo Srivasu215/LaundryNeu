@@ -2,29 +2,25 @@
 <form id="FormVertical" onsubmit="return false;">
     <div class="mb-3">
         <label for="CustomerName" class="form-label">Customer Name</label>
-        <input type="text" class="form-control" name="CustomerName" id="CustomerName" aria-describedby="emailHelp" required="">
-        <div class="invalid-feedback">
-            Should not be empty!
-        </div>
+        <input type="text" class="form-control" name="CustomerName" id="CustomerName" aria-describedby="emailHelp" value="{{CustomerName}}">
     </div>
     <div class="mb-3">
         <label for="Mobile" class="form-label">Mobile</label>
-        <input type="tel" class="form-control" name="Mobile" id="Mobile" pattern="[6789][0-9]{9}">
+        <input type="tel" class="form-control" name="Mobile" id="Mobile" pattern="[6789][0-9]{9}" value="{{Mobile}}">
     </div>
 
     <div class="mb-3">
         <label for="Garments" class="form-label">Garments</label>
-        <input type="text" class="form-control" name="Garments" id="Garments" aria-describedby="emailHelp" required="">
-        <div class="invalid-feedback">
-            Should not be empty!
-        </div>
+        <input type="text" class="form-control" name="Garments" id="Garments" aria-describedby="emailHelp" value="{{Garments}}">
     </div>
 
     <div class="mb-3">
         <label for="Weight" class="form-label">Weight</label>
-        <input type="number" class="form-control" name="Weight" id="Weight" aria-describedby="emailHelp" required="">
-        <div class="invalid-feedback">
-            Should not be empty!
-        </div>
+        <input type="number" class="form-control" name="Weight" id="Weight" aria-describedby="emailHelp" value="{{Weight}}">
+    </div>
+
+    <div class="mb-3">
+        <label for="Amount" class="form-label">Amount</label>
+        <input type="number" class="form-control" name="Amount" id="Amount" aria-describedby="emailHelp" value="{{Amount}}">
     </div>
 </form>

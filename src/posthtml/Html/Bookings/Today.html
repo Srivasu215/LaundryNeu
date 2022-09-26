@@ -162,6 +162,16 @@
 							</div>
 						</div>
 
+						<div class="mb-3">
+							<label for="Amount" class="form-label">Amount</label>
+							<input type="number" class="form-control" name="Amount" id="Amount"
+								aria-describedby="emailHelp" required="">
+							<div class="invalid-feedback">
+								Should not be empty!
+							</div>
+						</div>
+
+
 
 						<div class="mb-3 form-check">
 							<input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -240,6 +250,23 @@
 		</div>
 
 	</main>
+
+
+	<div class="modal fade" id="ShowModalId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Modal title</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+				</div>
+				<div class="modal-footer">
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 	<footer class="footer mt-auto py-2 bg-light fixed-bottom">
 		<div class="container">
@@ -442,17 +469,26 @@
 			if (inEvent.keyCode === 13) {
 				let jVarLocalCurrentTarget = inEvent.currentTarget;
 				let jVarLocalSearchValue = jVarLocalCurrentTarget.value;
+				let jVarLocalSearchValueArray = jVarLocalSearchValue.split("/");
 
-				let jVarLocalDataNeeded = await PickFunc({ inRowPK: jVarLocalSearchValue });
+				let jVarLocalDataNeeded = await PickFunc({ inRowPK: jVarLocalSearchValueArray[0] });
 
-				console.log("jVarLocalDataNeeded : ", jVarLocalDataNeeded);
+				if (jVarLocalDataNeeded.KTF) {
 
-				let response = await fetch("Hbs/PopUp/Vertical.html");
-				let data = await response.text();
+					console.log("jVarLocalDataNeeded : ", jVarLocalDataNeeded);
 
-				var template = Handlebars.compile(data);
-				let jVarLocalHtml = template(LocalDataToHbs);
+					let response = await fetch("Hbs/PopUp/Vertical.html");
+					let data = await response.text();
 
+					var template = Handlebars.compile(data);
+					let jVarLocalHtml = template(jVarLocalDataNeeded.KResult);
+					let jVarLocalShowModalId = document.getElementById("ShowModalId");
+					jVarLocalShowModalId.querySelector(".modal-body").innerHTML = jVarLocalHtml;
+
+					var myModal = new bootstrap.Modal(jVarLocalShowModalId, { keyboard: false, focus: true });
+					myModal.show();
+
+				};
 			};
 		};
 
