@@ -5,6 +5,10 @@
         "Garments": "shirt, pant",
         "Weight": "12",
         "Amount": "1200",
-        "DataTime": "26-09-2022-12-53-15"
+        "DataTime": "26-09-2022-12-53-15",
+        "WashingDone": {
+            "KTF": true,
+            "DateTime": "26-09-2022-16-49-42"
+        }
     }
 }

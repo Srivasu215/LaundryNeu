@@ -225,6 +225,7 @@
 	<script src="/Dal/Bookings/Show.js"></script>
 	<script src="/Dal/Bookings/Delete.js"></script>
 	<script src="/Dal/Bookings/Pick.js"></script>
+	<script src="/Dal/Washing/CompleteFuns.js"></script>
 
 	<script>
 		let jFGenerateQrCodeOnCanvas = ({ inQrData = "" }) => {
@@ -365,6 +366,7 @@
 
 		let jFWashCompleted = async ({ inRowPK }) => {
 			console.log("inRowPK : ", inRowPK);
+			await UpdateFunc({ inRowPK });
 		};
 
 		import("/js/khand.js").then(p => {
