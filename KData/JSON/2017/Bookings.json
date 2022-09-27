@@ -1,1 +1,22 @@
-{"1":{"CustomerName":"keshav","Mobile":"9848163021","Garments":"shirt","Weight":"16","Amount":"160","DateTime":"27-09-2022-22-51-3","WashingDone":{"KTF":true,"DateTime":"27-09-2022-22-51-24"}},"2":{"CustomerName":"chakri","Mobile":"9848163021","Garments":"shirt","Weight":"18","Amount":"163","DateTime":"27-09-2022-22-51-15"}}
+{
+    "1": {
+        "CustomerName": "keshav",
+        "Mobile": "9848163021",
+        "Garments": "shirt",
+        "Weight": "16",
+        "Amount": "160",
+        "DateTime": "27-09-2022-22-51-3",
+        "WashingDone": {
+            "KTF": true,
+            "DateTime": "27-09-2022-22-51-24"
+        }
+    },
+    "2": {
+        "CustomerName": "chakri",
+        "Mobile": "9848163021",
+        "Garments": "shirt",
+        "Weight": "18",
+        "Amount": "163",
+        "DateTime": "27-09-2022-22-51-15"
+    }
+}
