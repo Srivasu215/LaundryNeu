@@ -323,8 +323,12 @@
 		};
 
 		let jFDryingCompleted = async ({ inRowPK }) => {
-			console.log("inRowPK : ", inRowPK);
-			await UpdateDryingFunc({ inRowPK });
+			let jVarLocalFromUpdate = await UpdateDryingFunc({ inRowPK });
+			if (jVarLocalFromUpdate.KTF) {
+				//jFShowData();
+				window.location.reload();
+			};
+			//console.log("jVarLocalFromUpdate : ", jVarLocalFromUpdate);
 		};
 
 		import("/js/khand.js").then(p => {
