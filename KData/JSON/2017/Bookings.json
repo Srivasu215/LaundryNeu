@@ -13,7 +13,11 @@
         "Garments": "shirt",
         "Weight": "12",
         "Amount": "12",
-        "DateTime": "26-09-2022-19-2-52"
+        "DateTime": "26-09-2022-19-2-52",
+        "WashingDone": {
+            "KTF": true,
+            "DateTime": "27-09-2022-11-22-15"
+        }
     },
     "3": {
         "CustomerName": "Charan",
