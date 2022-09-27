@@ -7,9 +7,16 @@ let ShowDryingToCompleteFunc = async () => {
     let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
     let LocalCollectionData = Object.keys(LocalCustomersDataAsJson).map(key => ({ key, value: LocalCustomersDataAsJson[key] }));
 
+    // let LocalWashedData = _.filter(LocalCollectionData, (LoopItem) => {
+    //     if ("WashingDone" in LoopItem.value) {
+    //         LoopItem.value.WashingDone.KTF === true;
+    //     };
+    // });
+
+
     let LocalWashedData = _.filter(LocalCollectionData, (LoopItem) => {
         if ("WashingDone" in LoopItem.value) {
-            LoopItem.value.WashingDone.KTF === true;
+            return LoopItem.value.WashingDone.KTF === true;
         };
     });
 

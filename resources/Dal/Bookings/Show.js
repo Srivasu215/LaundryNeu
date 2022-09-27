@@ -29,7 +29,9 @@ let ShowTodayFunc = async () => {
     let LocalCollectionData = Object.keys(LocalCustomersDataAsJson).map(key => ({ key, value: LocalCustomersDataAsJson[key] }));
 
     let LocalFilteredData = _.filter(LocalCollectionData, (LoopItem) => {
-        return LoopItem.value.DateTime.substring(0, 10) === LocalGetDateOnly();
+        if ("DateTime" in LoopItem.value) {
+            return LoopItem.value.DateTime.substring(0, 10) === LocalGetDateOnly();    
+        };
     });
 
     LocalReturnObject.JsonData = LocalFilteredData;
