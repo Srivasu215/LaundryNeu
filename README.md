@@ -1,9 +1,5 @@
 
 
-<a href="https://github.com/neutralinojs/neutralinojs-minimal/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=neutralinojs/neutralinojs-minimal" />
-</a>
-
 ## License
 
 [MIT](LICENSE)
