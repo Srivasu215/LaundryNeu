@@ -9,24 +9,9 @@ let ShowFunc = async () => {
     let LocalCustomersData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/${LocalJsonFileName}`);
     let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
 
-    Object.entries(LocalCustomersDataAsJson).forEach(
-        ([LoopKey, LoopValue]) => {
+    let LocalCollectionData = Object.keys(LocalCustomersDataAsJson).map(key => ({ key, value: LocalCustomersDataAsJson[key] }));
 
-            let LoopNewObject = JSON.parse(JSON.stringify(ModalDataAsJson));
-            let LocalLoopObject = {};
-
-            Object.entries(LoopNewObject).forEach(
-                ([key, value]) => {
-                    LocalLoopObject[key] = LoopValue[key];
-                    value = LoopValue[key];
-
-                }
-            );
-
-            LocalReturnObject.JsonData[LoopKey] = LocalLoopObject;
-        }
-    );
-
+    LocalReturnObject.JsonData = LocalCollectionData;
     return await LocalReturnObject;
 };
 
