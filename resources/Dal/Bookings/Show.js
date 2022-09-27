@@ -41,19 +41,20 @@ let ToStart = async () => {
 
     let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
 
-    let ModalData = await Neutralino.filesystem.readFile(`./KData/JSON/TemplateData/${LocalJsonFileName}`);
-    let ModalDataAsJson = JSON.parse(ModalData);
-
     let LocalCustomersData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/${LocalJsonFileName}`);
     let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
 
     let LocalCollectionData = Object.keys(LocalCustomersDataAsJson).map(key => ({ key, value: LocalCustomersDataAsJson[key] }));
-
     let LocalFilteredData = _.filter(LocalCollectionData, (LoopItem) => {
-        return (LoopItem.value.WashingDone.KTF === true) === false;
+        if ("WashingDone" in LoopItem.value) {
+            return (LoopItem.value.WashingDone.KTF === true) === false;
+        }else{
+            return true;
+        }
     });
-
-    return await LocalFilteredData;
+    
+    LocalReturnObject.JsonData = LocalFilteredData;
+    return await LocalReturnObject;
 };
 
 let ShowWashed = async () => {

@@ -202,7 +202,7 @@
 			</div>
 		</div>
 	</footer>
-	
+
 	<script src="/js/bootstrap.min.js"></script>
 
 	<script src="/js/neutralino.js"></script>
@@ -273,27 +273,19 @@
 
 		let jFShowData = async () => {
 			let LocalDataFromJson = await ToStart();
-			let LocalDataToHbs = {};
 			let LocalSNo = 1;
-
-			let LocalDataWithSno = Object.keys(LocalDataFromJson.JsonData).map((element, LoopIndex) => {
-				element.SNo = LoopIndex + 1;
+			console.log("LocalDataFromJson : ", LocalDataFromJson.JsonData);
+			let LocalDataWithSno = _.map(LocalDataFromJson.JsonData, (element, LoopIndex) => {
+				console.log("element : ", element, LoopIndex);
+				element.value.SNo = LoopIndex + 1;
 				return element;
 			});
-
-			Object.entries(LocalDataFromJson.JsonData).forEach(
-				([key, value]) => {
-					LocalDataToHbs[key] = value;
-					LocalDataToHbs[key].SNo = LocalSNo;
-					LocalSNo += 1;
-				}
-			);
-
+			console.log("LocalDataWithSno : ", LocalDataWithSno);
 			let response = await fetch("Hbs/TodayBarcode.html");
 			let data = await response.text();
 
 			var template = Handlebars.compile(data);
-			let jVarLocalHtml = template(LocalDataToHbs);
+			let jVarLocalHtml = template(LocalDataWithSno);
 
 			document.getElementById("KTableBody").innerHTML = jVarLocalHtml;
 		};
