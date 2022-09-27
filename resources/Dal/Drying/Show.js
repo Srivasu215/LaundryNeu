@@ -1,4 +1,4 @@
-let ShowTodayFunc = async () => {
+let ShowDryingToCompleteFunc = async () => {
     let LocalJsonFileName = "Bookings.json";
 
     let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
@@ -6,11 +6,17 @@ let ShowTodayFunc = async () => {
     let LocalCustomersData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/${LocalJsonFileName}`);
     let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
     let LocalCollectionData = Object.keys(LocalCustomersDataAsJson).map(key => ({ key, value: LocalCustomersDataAsJson[key] }));
-    
-    let LocalFilteredData = _.filter(LocalCollectionData, (LoopItem) => {
+
+    let LocalWashedData = _.filter(LocalCollectionData, (LoopItem) => {
         if ("WashingDone" in LoopItem.value) {
-            return (LoopItem.value.WashingDone.KTF === true) === false;
-        }else{
+            LoopItem.value.WashingDone.KTF === true;
+        };
+    });
+
+    let LocalFilteredData = _.filter(LocalWashedData, (LoopItem) => {
+        if ("DryingDone" in LoopItem.value) {
+            return (LoopItem.value.DryingDone.KTF === true) === false;
+        } else {
             return true;
         }
     });

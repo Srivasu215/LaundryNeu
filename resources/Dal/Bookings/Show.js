@@ -70,11 +70,11 @@ let ShowWashed = async () => {
 
     Object.entries(LocalCustomersDataAsJson).forEach(
         ([LoopKey, LoopValue]) => {
-            if ('DataTime' in LoopValue) {
-                let LoopRowDataTime = LoopValue.DataTime.substring(0, 10);
+            if ('DateTime' in LoopValue) {
+                let LoopRowDataTime = LoopValue.DateTime.substring(0, 10);
                 let LocalSysDateTime = LocalGetDateOnly();
 
-                if (LoopRowDataTime === LocalSysDateTime) {
+                if (LoopRowDateTime === LocalSysDateTime) {
                     let LocalWashed = LoopValue.WashingDone;
                     console.log("LocalWashed : ", LocalWashed);
                     if (LocalWashed === undefined || (LocalWashed.KTF === true) === false) {
