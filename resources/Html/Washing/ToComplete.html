@@ -322,9 +322,14 @@
 		};
 
 		let jFWashCompleted = async ({ inRowPK }) => {
-			console.log("inRowPK : ", inRowPK);
-			window.location=""
-			await UpdateFunc({ inRowPK });
+
+			//window.location="";
+			let jVarLocalFromUpdate = await UpdateFunc({ inRowPK });
+			if (jVarLocalFromUpdate.KTF) {
+				//jFShowData();
+				window.location.reload();
+			};
+			//console.log("jVarLocalFromUpdate : ", jVarLocalFromUpdate);
 		};
 
 		import("/js/khand.js").then(p => {
