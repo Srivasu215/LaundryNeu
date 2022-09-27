@@ -274,13 +274,12 @@
 		let jFShowData = async () => {
 			let LocalDataFromJson = await ToStart();
 			let LocalSNo = 1;
-			console.log("LocalDataFromJson : ", LocalDataFromJson.JsonData);
+			
 			let LocalDataWithSno = _.map(LocalDataFromJson.JsonData, (element, LoopIndex) => {
-				console.log("element : ", element, LoopIndex);
 				element.value.SNo = LoopIndex + 1;
 				return element;
 			});
-			console.log("LocalDataWithSno : ", LocalDataWithSno);
+
 			let response = await fetch("Hbs/TodayBarcode.html");
 			let data = await response.text();
 

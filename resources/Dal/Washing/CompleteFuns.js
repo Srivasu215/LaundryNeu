@@ -22,3 +22,17 @@ let UpdateFunc = async ({ inRowPK }) => {
 
     return await LocalReturnObject;
 };
+
+let LocalGetDate = () => {
+    let date = new Date();
+
+    let dd = (date.getDate() < 10 ? '0' : '') + date.getDate();
+    let MM = ((date.getMonth() + 1) < 10 ? '0' : '') + (date.getMonth() + 1);
+    let yyyy = date.getFullYear();
+    let HH = date.getHours();
+    let mm = date.getMinutes();
+    let ss = date.getSeconds();
+
+    return `${dd}-${MM}-${yyyy}-${HH}-${mm}-${ss}`;
+};
+
