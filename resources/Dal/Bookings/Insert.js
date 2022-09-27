@@ -31,7 +31,7 @@ let InsertFunc = async ({ inObjectToInsert = {} }) => {
     };
 
     let LocalNewData = _.pick(inObjectToInsert, Object.keys(ModalDataAsJson));
-    LocalNewData.DataTime = LocalGetDate();
+    LocalNewData.DatesTime = LocalGetDate();
     LocalCustomersDataAsJson[max] = LocalNewData;
 
     let LocalFromWriteFile = await Neutralino.filesystem.writeFile(`./KData/JSON/2017/${LocalJsonFileName}`, JSON.stringify(LocalCustomersDataAsJson));
