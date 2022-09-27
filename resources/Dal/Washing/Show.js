@@ -15,7 +15,7 @@ let ShowTodayFunc = async () => {
         }
     });
 
-    LocalReturnObject.JsonData = LocalCollectionData;
+    LocalReturnObject.JsonData = LocalFilteredData;
     console.log("LocalReturnObject : ", LocalReturnObject);
     return await LocalReturnObject;
 };
