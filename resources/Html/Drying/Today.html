@@ -343,9 +343,9 @@
 			};
 		};
 
-		let jFWashCompleted = async ({ inRowPK }) => {
+		let jFDryingCompleted = async ({ inRowPK }) => {
 			console.log("inRowPK : ", inRowPK);
-			await UpdateFunc({ inRowPK });
+			await UpdateDryingFunc({ inRowPK });
 		};
 
 		import("/js/khand.js").then(p => {

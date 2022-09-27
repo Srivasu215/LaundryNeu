@@ -7,7 +7,7 @@ let UpdateDryingFunc = async ({ inRowPK }) => {
     let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
 
     if (inRowPK in LocalCustomersDataAsJson) {
-        LocalCustomersDataAsJson[inRowPK].WashingDone = {
+        LocalCustomersDataAsJson[inRowPK].DryingDone = {
             KTF: true,
             DateTime: LocalGetDate()
         };
