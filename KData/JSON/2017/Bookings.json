@@ -5,7 +5,7 @@
         "Garments": "shirt",
         "Weight": "12",
         "Amount": "12",
-        "DataTime": "25-09-2022-19-2-52"
+        "DateTime": "25-09-2022-19-2-52"
     },
     "2": {
         "CustomerName": "Chakri",
@@ -13,6 +13,14 @@
         "Garments": "shirt",
         "Weight": "12",
         "Amount": "12",
-        "DataTime": "26-09-2022-19-2-52"
+        "DateTime": "26-09-2022-19-2-52"
+    },
+    "3": {
+        "CustomerName": "Charan",
+        "Mobile": "9848163021",
+        "Garments": "shirt",
+        "Weight": "12",
+        "Amount": "12",
+        "DateTime": "27-09-2022-19-2-52"
     }
 }
