@@ -9,5 +9,7 @@
 *.log
 
 /node_modules
+/temp
 
 .tmp
+
