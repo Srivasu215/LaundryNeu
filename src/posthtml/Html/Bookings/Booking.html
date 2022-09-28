@@ -115,77 +115,83 @@
 
 	</header>
 	<main>
-
-
 		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="mb-3">
-						<label for="CustomerName" class="form-label fs-1">Customer Name</label>
-						<input type="text" class="form-control fs-2" name="CustomerName" id="CustomerName"
-							aria-describedby="emailHelp" required="">
-						<div class="invalid-feedback">
-							Should not be empty!
+			<form id="FormVertical" onsubmit="return false;">
+				<div class="row">
+					<div class="row col-md-6 mb-3">
+						<label class="col-md-6 col-form-label">Customer Name</label>
+
+						<div class="col-md-6">
+							<input type="text" class="form-control fs-2" name="CustomerName" id="CustomerName"
+								aria-describedby="emailHelp" required="">
+							<div class="invalid-feedback">
+								Should not be empty!
+							</div>
+
+						</div>
+					</div>
+					<div class="row col-md-6 mb-3">
+						<label class="col-md-6 col-form-label">Customer Name</label>
+
+						<div class="col-md-6">
+							<input type="tel" class="form-control fs-2" name="Mobile" id="Mobile"
+								pattern="[6789][0-9]{9}">
+							<div class="invalid-feedback">
+								Should not be empty!
+							</div>
+
 						</div>
 					</div>
 				</div>
-				<div class="col">
-					<div class="mb-3">
-						<label for="Mobile" class="form-label fs-1">Mobile</label>
-						<input type="tel" class="form-control fs-2" name="Mobile" id="Mobile" pattern="[6789][0-9]{9}">
+
+				<div class="row">
+					<div class="col">
+						<div class="mb-3">
+							<label for="Garments" class="form-label fs-1">Garments</label>
+							<input type="text" class="form-control fs-2" name="Garments" id="Garments"
+								aria-describedby="emailHelp" required="">
+							<div class="invalid-feedback">
+								Should not be empty!
+							</div>
+						</div>
 					</div>
-
-				</div>
-
-			</div>
-			<div class="row">
-				<div class="col">
-					<div class="mb-3">
-						<label for="Garments" class="form-label fs-1">Garments</label>
-						<input type="text" class="form-control fs-2" name="Garments" id="Garments"
-							aria-describedby="emailHelp" required="">
-						<div class="invalid-feedback">
-							Should not be empty!
+					<div class="col">
+						<div class="mb-3">
+							<label for="Weight" class="form-label fs-1">Weight</label>
+							<input type="number" class="form-control fs-2" name="Weight" id="Weight"
+								aria-describedby="emailHelp" required="">
+							<div class="invalid-feedback">
+								Should not be empty!
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col">
-					<div class="mb-3">
-						<label for="Weight" class="form-label fs-1">Weight</label>
-						<input type="number" class="form-control fs-2" name="Weight" id="Weight" aria-describedby="emailHelp"
-							required="">
-						<div class="invalid-feedback">
-							Should not be empty!
+
+				<div class="row">
+					<div class="col">
+
+						<div class="mb-3">
+							<label for="Amount" class="form-label centre fs-1">Amount</label>
+							<input type="number" class="form-control fs-2" name="Amount" id="Amount"
+								aria-describedby="emailHelp" required="">
+							<div class="invalid-feedback">
+								Should not be empty!
+							</div>
 						</div>
-					</div>
-				</div>
-			</div>
 
-			<div class="row">
-				<div class="col">
-					
-					<div class="mb-3">
-						<label for="Amount" class="form-label centre fs-1">Amount</label>
-						<input type="number" class="form-control fs-2" name="Amount" id="Amount" aria-describedby="emailHelp"
-							required="">
-						<div class="invalid-feedback">
-							Should not be empty!
+					</div>
+					<div class="col">
+						<div class="mb-3 form-check">
+							<input type="checkbox" class="form-check-input fs-5" id="exampleCheck1">
+							<label class="form-check-label fs-5" for="exampleCheck1">Check me out</label>
 						</div>
+						<button class="btn btn-success fs-3" onclick="jFSave()">Save</button>
+
 					</div>
 
 				</div>
-				<div class="col">
-					<div class="mb-3 form-check">
-						<input type="checkbox" class="form-check-input fs-5" id="exampleCheck1">
-						<label class="form-check-label fs-5" for="exampleCheck1">Check me out</label>
-					</div>
-					<button class="btn btn-success fs-3" onclick="jFSave()">Save</button>
-					</form>
-				</div>
 
-
-
-			</div>
+			</form>
 
 			<div id="AlertWarningId" class="alert alert-warning alert-dismissible fade show" role="alert"
 				style="display:none;">
@@ -252,7 +258,7 @@
 					</div>
 				</div>
 			</div>
-
+		</div>
 	</main>
 
 
@@ -357,33 +363,6 @@
 			return pairs;
 		};
 
-		let jFShowData = async () => {
-			let LocalDataFromJson = await ShowTodayFunc();
-			let LocalDataToHbs = {};
-			let LocalSNo = 1;
-
-			let LocalDataWithSno = Object.keys(LocalDataFromJson.JsonData).map((element, LoopIndex) => {
-				element.SNo = LoopIndex + 1;
-				return element;
-			});
-
-			Object.entries(LocalDataFromJson.JsonData).forEach(
-				([key, value]) => {
-					LocalDataToHbs[key] = value;
-					LocalDataToHbs[key].SNo = LocalSNo;
-					LocalSNo += 1;
-				}
-			);
-
-			let response = await fetch("Hbs/Row.html");
-			let data = await response.text();
-
-			var template = Handlebars.compile(data);
-			let jVarLocalHtml = template(LocalDataToHbs);
-
-			document.getElementById("KTableBody").innerHTML = jVarLocalHtml;
-		};
-
 		let jFSave = async () => {
 			let jVarLocalFormVertical = document.getElementById("FormVertical");
 
@@ -394,8 +373,6 @@
 				let PromiseDataFromSave = await InsertFunc({ inObjectToInsert: serializeObject(jVarLocalFormVertical) });
 
 				if (PromiseDataFromSave.KTF) {
-					await jFShowData();
-
 					let jVarLocalAlertSuccessId = document.getElementById("AlertSuccessId");
 					let jVarLocalAlertSuccessMessageId = document.getElementById("AlertSuccessMessageId");
 					jVarLocalAlertSuccessId.style.display = "";
@@ -418,51 +395,6 @@
 				};
 			} else {
 				document.forms[1].classList.add('was-validated');
-			};
-		};
-
-		let jFDelete = async ({ inRowPK }) => {
-			let LocalFromDelete = await DeleteFunc({ inRowPK });
-
-			if (LocalFromDelete.KTF) {
-				await jFShowData();
-
-				let jVarLocalAlertDangerId = document.getElementById("AlertDangerId");
-				let jVarLocalAlertDangerMessageId = document.getElementById("AlertDangerMessageId");
-				jVarLocalAlertDangerId.style.display = "";
-				jVarLocalAlertDangerMessageId.innerHTML = `<strong>Ok!</strong> ${LocalFromDelete.KResult}`
-
-				setTimeout(function () {
-					jVarLocalAlertDangerId.style.display = "none"
-
-				}, 7000);
-			};
-		};
-
-		let jFPickFunc = async ({ inRowPK }) => {
-			let jVarLocalDataNeeded = await PickFunc({ inRowPK });
-
-			if (jVarLocalDataNeeded.KTF) {
-				let jVarLocalModalCustomerName = document.getElementById("ModalCustomerName");
-				let jVarLocalModalPK = document.getElementById("ModalPK");
-				let jVarLocalModalGarments = document.getElementById("ModalGarments");
-				let jVarLocalModalWeight = document.getElementById("ModalWeight");
-				let jVarLocalModalMobile = document.getElementById("ModalMobile");
-
-				jVarLocalModalCustomerName.innerHTML = jVarLocalDataNeeded.KResult.CustomerName;
-				jVarLocalModalPK.innerHTML = inRowPK;
-				jVarLocalModalGarments.innerHTML = jVarLocalDataNeeded.KResult.Garments;
-				jVarLocalModalWeight.innerHTML = `${jVarLocalDataNeeded.KResult.Weight} Kg.`;
-				jVarLocalModalMobile.innerHTML = jVarLocalDataNeeded.KResult.Mobile;
-
-				let jVarLocalQrData = `${inRowPK}/${jVarLocalDataNeeded.KResult.CustomerName}/${jVarLocalDataNeeded.KResult.Mobile}/${jVarLocalDataNeeded.KResult.Garments}/${jVarLocalDataNeeded.KResult.Weight}`;
-				jFGenerateQrCodeOnCanvas({ inQrData: jVarLocalQrData });
-
-				let jVarLocalId = "ModalForQrCode";
-
-				var myModal = new bootstrap.Modal(document.getElementById(jVarLocalId), { keyboard: true, focus: true });
-
-				myModal.show();
 			};
 		};
 
@@ -498,7 +430,6 @@
 		};
 
 		Neutralino.init();
-		jFShowData();
 	</script>
 </body>
 
