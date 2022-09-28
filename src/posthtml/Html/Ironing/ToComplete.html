@@ -195,8 +195,8 @@
 	<script src="/js/print.min.js"></script>
 	<script src="/js/KeshavSoft/HandleBars/HelperFuns.js"></script>
 
-	<script src="/Dal/Drying/Show.js"></script>
-	<script src="/Dal/Drying/CompleteFuns.js"></script>
+	<script src="/Dal/Ironing/Show.js"></script>
+	<script src="/Dal/Ironing/CompleteFuns.js"></script>
 
 	<script>
 		let jFGenerateQrCodeOnCanvas = ({ inQrData = "" }) => {
@@ -254,7 +254,7 @@
 		};
 
 		let jFShowData = async () => {
-			let LocalDataFromJson = await ShowDryingToCompleteFunc();
+			let LocalDataFromJson = await ShowIroningToCompleteFunc();
 			let LocalDataToHbs = {};
 			let LocalSNo = 1;
 
@@ -335,8 +335,8 @@
 			};
 		};
 
-		let jFDryingCompleted = async ({ inRowPK }) => {
-			let jVarLocalFromUpdate = await UpdateDryingFunc({ inRowPK });
+		let jFIroningCompleted = async ({ inRowPK }) => {
+			let jVarLocalFromUpdate = await UpdateIroningFunc({ inRowPK });
 			if (jVarLocalFromUpdate.KTF) {
 				//jFShowData();
 				window.location.reload();
