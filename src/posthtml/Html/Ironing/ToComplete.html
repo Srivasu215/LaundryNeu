@@ -199,44 +199,6 @@
 	<script src="/Dal/Ironing/CompleteFuns.js"></script>
 
 	<script>
-		let jFGenerateQrCodeOnCanvas = ({ inQrData = "" }) => {
-			var canvas = document.getElementById('canvas');
-			canvas.height = 1;
-			canvas.width = 1;
-			canvas.style.visibility = 'hidden';
-
-			// Convert the options to an object.
-			let opts = {};
-
-			// Finish up the options
-			opts.text = inQrData;
-			opts.bcid = "qrcode";
-			opts.scaleX = 1;
-			opts.scaleY = 1;
-			opts.rotate = "N";
-
-			// Draw the bar code to the canvas
-			try {
-				let ts0 = new Date;
-				bwipjs.toCanvas(canvas, opts);
-				show(ts0, new Date);
-			} catch (e) {
-				console.log("error : ", e);
-				// Watch for BWIPP generated raiseerror's.
-
-				return;
-			}
-
-			function show(ts0, ts1) {
-				canvas.style.visibility = 'visible';
-				//setURL();
-				// document.getElementById('stats').textContent = 'Rendered in ' + (ts1 - ts0) + ' msecs.';
-				// document.getElementById('saveas').style.visibility = 'visible';
-				// saveCanvas.basename = elt.sym + '-' + text.replace(/[^a-zA-Z0-9._]+/g, '-');
-
-			}
-		};
-
 		let serializeObject = (form) => {
 			// Create a new FormData object
 			const formData = new FormData(form);
@@ -317,24 +279,6 @@
 			};
 		};
 
-		let jFDelete = async ({ inRowPK }) => {
-			let LocalFromDelete = await DeleteFunc({ inRowPK });
-
-			if (LocalFromDelete.KTF) {
-				await jFShowData();
-
-				let jVarLocalAlertDangerId = document.getElementById("AlertDangerId");
-				let jVarLocalAlertDangerMessageId = document.getElementById("AlertDangerMessageId");
-				jVarLocalAlertDangerId.style.display = "";
-				jVarLocalAlertDangerMessageId.innerHTML = `<strong>Ok!</strong> ${LocalFromDelete.KResult}`
-
-				setTimeout(function () {
-					jVarLocalAlertDangerId.style.display = "none"
-
-				}, 7000);
-			};
-		};
-
 		let jFIroningCompleted = async ({ inRowPK }) => {
 			let jVarLocalFromUpdate = await UpdateIroningFunc({ inRowPK });
 			if (jVarLocalFromUpdate.KTF) {
@@ -343,10 +287,6 @@
 			};
 			//console.log("jVarLocalFromUpdate : ", jVarLocalFromUpdate);
 		};
-
-		import("/js/khand.js").then(p => {
-			p.HelperFuns.ForSno();
-		});
 
 		let jFSearchKeyPress = async (inEvent) => {
 			if (inEvent.keyCode === 13) {
