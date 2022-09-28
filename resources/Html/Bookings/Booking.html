@@ -101,7 +101,7 @@
 			<form id="FormVertical" onsubmit="return false;">
 				<div class="row">
 					<div class="row col-md-6 mb-3">
-						<label class="col-md-6 col-form-label">Customer Name</label>
+						<label class="col-md-6 col-form-label fs-2">Customer Name</label>
 
 						<div class="col-md-6">
 							<input type="text" class="form-control fs-2" name="CustomerName" id="CustomerName" aria-describedby="emailHelp" required="">
@@ -112,7 +112,7 @@
 						</div>
 					</div>
 					<div class="row col-md-6 mb-3">
-						<label class="col-md-6 col-form-label">Customer Name</label>
+						<label class="col-md-6 col-form-label fs-2">Mobile</label>
 
 						<div class="col-md-6">
 							<input type="tel" class="form-control fs-2" name="Mobile" id="Mobile" pattern="[6789][0-9]{9}">
@@ -125,38 +125,42 @@
 				</div>
 
 				<div class="row">
-					<div class="col">
-						<div class="mb-3">
-							<label for="Garments" class="form-label fs-1">Garments</label>
+					<div class="row col-md-6 mb-3">
+						<label class="col-md-6 col-form-label fs-2">Garments</label>
+
+						<div class="col-md-6">
 							<input type="text" class="form-control fs-2" name="Garments" id="Garments" aria-describedby="emailHelp" required="">
 							<div class="invalid-feedback">
 								Should not be empty!
 							</div>
+
 						</div>
 					</div>
-					<div class="col">
-						<div class="mb-3">
-							<label for="Weight" class="form-label fs-1">Weight</label>
+					<div class="row col-md-6 mb-3">
+						<label class="col-md-6 col-form-label fs-2">Weight</label>
+
+						<div class="col-md-6">
 							<input type="number" class="form-control fs-2" name="Weight" id="Weight" aria-describedby="emailHelp" required="">
 							<div class="invalid-feedback">
 								Should not be empty!
 							</div>
+
 						</div>
 					</div>
 				</div>
-
 				<div class="row">
-					<div class="col">
+					<div class="row col-md-6 mb-3">
+						<label class="col-md-6 col-form-label fs-2">Amount</label>
 
-						<div class="mb-3">
-							<label for="Amount" class="form-label centre fs-1">Amount</label>
+						<div class="col-md-6">
 							<input type="number" class="form-control fs-2" name="Amount" id="Amount" aria-describedby="emailHelp" required="">
 							<div class="invalid-feedback">
 								Should not be empty!
 							</div>
-						</div>
 
+						</div>
 					</div>
+
 					<div class="col">
 						<div class="mb-3 form-check">
 							<input type="checkbox" class="form-check-input fs-5" id="exampleCheck1">
@@ -167,8 +171,11 @@
 					</div>
 
 				</div>
+				</form></div>
 
-			</form>
+		
+
+			
 
 			<div id="AlertWarningId" class="alert alert-warning alert-dismissible fade show" role="alert" style="display:none;">
 				<div id="AlertWarningMessageId"><strong>Sorry!</strong> Data not saved</div>
@@ -230,7 +237,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		
 	</main>
 
 
